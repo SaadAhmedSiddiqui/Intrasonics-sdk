@@ -1,0 +1,6 @@
+# Dependency directory
+# https://docs.npmjs.com/misc/developers
+node_modules
+
+# IDEs and editors
+.vscode
