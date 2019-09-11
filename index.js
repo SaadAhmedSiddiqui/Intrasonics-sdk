@@ -55,9 +55,9 @@ const IntrasonicsSDK = (function () {
    * @async
    * @function encode
    * @param {object} config - Intrasonics Encoder configuration.
-   * @param {string} config.filePath - name or Path of a audio/video file to be encoded.
+   * @param {string} config.filePath - file name or file path of a audio/video file to be encoded.
    * @param {string} config.codeword - watermarkId/trackId that will be encoded in audio/video file.
-   * @param {string} [config.outputPath] - file name or file path.
+   * @param {string} [config.outputPath] - file name or file path for encoded/output file.
    * @param {boolean | number} [config.eventEngine] - controls Event Engine 2 encoding true for on or time offset.
    * @param {number} [config.time] - time in seconds where the codeword will be placed.
    * @return {Promise<string>} - console output

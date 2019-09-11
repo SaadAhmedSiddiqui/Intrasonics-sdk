@@ -1,6 +1,6 @@
 {
   "name": "intrasonics-sdk",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Nodejs wrapper sdk to assist you with command line encoding software of intrasonics",
   "main": "index.js",
   "scripts": {
@@ -15,7 +15,7 @@
     "Nodejs",
     "Encoder"
   ],
-  "author": "Saad Ahmed Siddiqui",
+  "author": "Saad Ahmed Siddiqui <saad_siddiqui@msn.com> (https://github.com/SaadAhmedSiddiqui)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/SaadAhmedSiddiqui/Intrasonics-sdk/issues"
