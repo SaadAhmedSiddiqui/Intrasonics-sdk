@@ -57,13 +57,11 @@ try {
 }
 ```
 
-## Main Constructor
+## Main Constructor and Config Options
 
 ``` sh
 const intrasonicsSDK = IntrasonicsSDK({softwareFolder, tokenPath});
  ```
-
-## Main Constructor Config Options
 
 ### softwareFolder (string) [folder path or folder name]
 
@@ -73,7 +71,7 @@ const intrasonicsSDK = IntrasonicsSDK({softwareFolder, tokenPath});
 
 * name or path to the encoder token (with .ist suffix)
 
-## Encoder Instance Method
+## Encoder Instance Method and Config Options
 
 ``` sh
 await intrasonicsSDK.encode({filePath, codeword, [outputPath], [eventEngine], [time]})
@@ -87,15 +85,25 @@ await intrasonicsSDK.encode({filePath, codeword, [outputPath], [eventEngine], [t
 
 * watermarkId/trackId that will be encoded in audio/video file
 
-### outputPath (string) [Optional]
+### outputPath (string) [optional]
 
 * file name or file path to encoded/output file
 
-### eventEngine (boolean | number) [Optional]
+### eventEngine (boolean | number) [optional]
 
 * controls event engine 2 encoding true for on or time offset in number
 
-### time (number) [Optional]
+### time (number) [optional]
 
 * time in seconds where the codeword will be placed
+
+## Encoding Error
+
+### stderr (string) [optional][availabe when encode recieves error]
+
+``` sh
+console.error(intrasonicsSDK.stderr)
+ ```
+
+ * availabe when encode method gives an error
 

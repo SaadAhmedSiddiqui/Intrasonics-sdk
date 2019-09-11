@@ -9,7 +9,8 @@ const IntrasonicsSDK = (function () {
    * @param {object} config - Intrasonics configuration.
    * @param {string} config.softwareFolder - name or path to folder which will contain AVFileDecoder ffmpeg ffprobe files i.e. Encoder Software.
    * @param {string} config.tokenPath - name or path to encoder token (with .ist suffix).
-   * @property {function} encode
+   * @property {function} encode - encoding method to encode audio
+   * @property {string} [stderr] - when encode method gives an error
    */
   function IntrasonicsSDK(config) {
     config = config || {};
@@ -80,7 +81,6 @@ const IntrasonicsSDK = (function () {
 
       if (config.outputPath) {
         config.outputPath = resolvePath(config.outputPath);
-        console.log(config.outputPath);
         execStr += `-o ${config.outputPath} `
       }
       if (config.time) {
@@ -93,12 +93,11 @@ const IntrasonicsSDK = (function () {
           execStr += `-e ${config.eventEngine}`;
         }
       }
-
-      console.log(execStr);
-      exec(execStr, async (err, stdout, stderr) => {
-        if (err) {
-          console.error(stderr);
-          reject(err);
+      this.stderr = null;
+      exec(execStr, (err, stdout, stderr) => {
+        if (err || stderr) {
+          this.stderr = stderr;
+          return reject(err || stderr);
         }
 
         resolve(stdout);
